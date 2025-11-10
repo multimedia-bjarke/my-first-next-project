@@ -1,0 +1,33 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(255, 253, 222);
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+}
+
+.page h1 {
+  color: orange;
+  font-size: 2rem;
+}
+
+.page h2 {
+  color: green;
+}
+
+.page ol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
