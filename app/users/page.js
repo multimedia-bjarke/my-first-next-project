@@ -1,16 +1,27 @@
+import Link from "next/link";
 import styles from "./../page.module.css";
 
-export default function Users() {
+export default function Users({ id }) {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>Users Page</h1>
         <ol>
-          <li>User 1: Alice</li>
-          <li>User 2: Bob</li>
-          <li>User 3: Charlie</li>
-          <li>User 4: Diana</li>
-          <li>User 5: Ethan</li>
+          <li>
+            <Link href="/users/1">User 1: Alice</Link>
+          </li>
+          <li>
+            <Link href="/users/2">User 2: Bob</Link>
+          </li>
+          <li>
+            <Link href="/users/3">User 3: Charlie</Link>
+          </li>
+          <li>
+            <Link href="/users/4">User 4: Diana</Link>
+          </li>
+          <li>
+            <Link href="/users/5">User 5: Ethan</Link>
+          </li>
         </ol>
       </main>
     </div>
