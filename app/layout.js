@@ -1,5 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,15 +25,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header>
-          <h1>
-            My first Next.js project - navbar and logo goes here in the header
-          </h1>
-        </header>
+        {<Header />}
+        <Navbar />
         {children}
-        <footer>
-          <h2>Footer goes here - both in layout file</h2>
-        </footer>
+        {<Footer />}
       </body>
     </html>
   );
