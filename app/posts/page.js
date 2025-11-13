@@ -1,7 +1,19 @@
 import Link from "next/link";
 import styles from "./../page.module.css";
 
-export default function Posts() {
+export default async function Posts() {
+  const response = await fetch(
+    `https://fb-rest-race-default-rtdb.firebaseio.com/posts.json`
+  );
+  const dataObject = await response.json();
+  console.log(dataObject);
+
+  const posts = Object.keys(dataObject).map((key) => ({
+    id: key,
+    ...dataObject[key],
+  }));
+  console.log(posts);
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -9,21 +21,13 @@ export default function Posts() {
         <p>Here's a list of posts</p>
         <section>
           <ol>
-            <li>
-              <Link href="/posts/1">Post 1</Link>
-            </li>
-            <li>
-              <Link href="/posts/2">Post 2</Link>
-            </li>
-            <li>
-              <Link href="/posts/3">Post 3</Link>
-            </li>
-            <li>
-              <Link href="/posts/4">Post 4</Link>
-            </li>
-            <li>
-              <Link href="/posts/5">Post 5</Link>
-            </li>
+            {posts.map((post) => {
+              return (
+                <li key={post.id}>
+                  <Link href={"/posts/${post.id}"}>{post.caption}</Link>
+                </li>
+              );
+            })}
           </ol>
         </section>
       </main>
